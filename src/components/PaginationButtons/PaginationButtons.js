@@ -21,7 +21,7 @@ function PaginationButtons({ data, updatePage, currentPage }) {
       );
     }
     setButtonsArr(finalArray);
-  }, [data]);
+  }, []);
 
   const goToPage = () => {
     if (
@@ -35,7 +35,7 @@ function PaginationButtons({ data, updatePage, currentPage }) {
 
   return (
     <div className="button_container">
-      {buttonsArr.length > 5 && (
+      {buttonsArr.length > 10 && (
         <button
           onClick={() => currentPage !== 1 && updatePage(currentPage - 1)}
           className="page_button"
@@ -44,8 +44,10 @@ function PaginationButtons({ data, updatePage, currentPage }) {
         </button>
       )}
 
+      {/* To avoid mutation */}
       {[...buttonsArr].slice(currentPage - 1, currentPage + 4)}
-      {buttonsArr.length > 5 && (
+
+      {buttonsArr.length > 10 && (
         <button
           onClick={() =>
             currentPage !== buttonsArr.length && updatePage(currentPage + 1)
@@ -56,7 +58,7 @@ function PaginationButtons({ data, updatePage, currentPage }) {
         </button>
       )}
 
-      {buttonsArr.length > 5 && (
+      {buttonsArr.length > 10 && (
         <div className="go_to_container">
           <input
             type="numeric"

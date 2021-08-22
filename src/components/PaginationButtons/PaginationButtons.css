@@ -13,6 +13,17 @@
   color: #fff;
 }
 
+.disabled_button {
+  border: 1px solid #1890ff;
+  width: 55px;
+  margin: 2% 5px auto;
+  height: 35px;
+  background-color: #fff;
+  color: #1890ff;
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
 .button_container {
   margin: 0 auto;
   padding: 5px;

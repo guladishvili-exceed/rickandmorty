@@ -4,6 +4,7 @@ import "./SearchInformation.css";
 
 function SearchInformation({ generalInfo, setSearchResult }) {
   const [searchText, setSearchText] = useState("");
+
   const searchCharacters = useMemo(() => {
     return generalInfo.filter((general) => {
       return (
@@ -14,7 +15,11 @@ function SearchInformation({ generalInfo, setSearchResult }) {
         (general.status &&
           general.status.toLowerCase().includes(searchText.toLowerCase())) ||
         (general.name &&
-          general.name.toLowerCase().includes(searchText.toLowerCase()))
+          general.name.toLowerCase().includes(searchText.toLowerCase())) ||
+        (general.type &&
+          general.type.toLowerCase().includes(searchText.toLowerCase())) ||
+        (general.dimension &&
+          general.dimension.toLowerCase().includes(searchText.toLowerCase()))
       );
     });
   }, [searchText]);
