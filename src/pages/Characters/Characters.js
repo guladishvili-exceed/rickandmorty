@@ -12,7 +12,6 @@ import "./Characters.css";
 function Characters() {
   const [charactersInfo, setCharactersInfo] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
-  const [searcContent, setSearchContent] = useState(null);
   const [characterId, setCharacterId] = useState(null);
   const [apiPage, setApiPage] = useState(1);
   const [modal, setModal] = useState(false);
