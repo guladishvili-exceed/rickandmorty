@@ -57,6 +57,7 @@ function EpisodesAndLocations() {
 
       {generalInfo && generalInfo.info && (
         <PaginationButtons
+          currentPage={page}
           data={generalInfo}
           updatePage={(number) => setPage(number)}
         />

@@ -17,6 +17,9 @@ function Characters() {
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
+    // We set charactersInfo state to null to reset the charactersInfo state
+    // With a new information which will be fetched from the api :)
+    setCharactersInfo(null);
     fetch(`https://rickandmortyapi.com/api/character/?page=${apiPage}`)
       .then((res) => res.json())
       .then((result) => {
@@ -62,6 +65,7 @@ function Characters() {
 
       {charactersInfo && (
         <PaginationButtons
+          currentPage={apiPage}
           data={charactersInfo}
           updatePage={(number) => setApiPage(number)}
         />

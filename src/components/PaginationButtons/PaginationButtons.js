@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import "./PaginationButtons.css";
 
-function PaginationButtons({ data, updatePage }) {
+function PaginationButtons({ data, updatePage, currentPage }) {
+  const inputRef = useRef("");
+
   const [buttonsArr, setButtonsArr] = useState([]);
 
   useEffect(() => {
@@ -20,7 +22,54 @@ function PaginationButtons({ data, updatePage }) {
     }
     setButtonsArr(finalArray);
   }, [data]);
-  return <div className="button_container">{buttonsArr.map((el) => el)}</div>;
+
+  const goToPage = () => {
+    if (
+      inputRef.current.value &&
+      /\d/.test(inputRef.current.value) &&
+      parseInt(inputRef.current.value) < buttonsArr.length
+    ) {
+      updatePage(parseInt(inputRef.current.value));
+    }
+  };
+
+  return (
+    <div className="button_container">
+      {buttonsArr.length > 5 && (
+        <button
+          onClick={() => currentPage !== 1 && updatePage(currentPage - 1)}
+          className="page_button"
+        >
+          Prev
+        </button>
+      )}
+
+      {[...buttonsArr].slice(currentPage - 1, currentPage + 4)}
+      {buttonsArr.length > 5 && (
+        <button
+          onClick={() =>
+            currentPage !== buttonsArr.length && updatePage(currentPage + 1)
+          }
+          className="page_button"
+        >
+          Next
+        </button>
+      )}
+
+      {buttonsArr.length > 5 && (
+        <div className="go_to_container">
+          <input
+            type="numeric"
+            ref={inputRef}
+            placeholder={`${currentPage}/` + `${buttonsArr.length}`}
+          />
+          <button onClick={goToPage} className="page_button">
+            Go To
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default PaginationButtons;
