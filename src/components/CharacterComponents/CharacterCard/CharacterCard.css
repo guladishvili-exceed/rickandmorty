@@ -1,0 +1,37 @@
+.card_container {
+  width: 65%;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.character_image {
+  width: 65%;
+  height: 350px;
+  align-self: center;
+  margin-top: 5%;
+}
+
+.info_text {
+  color: #4a4b4c;
+  font-size: 22px;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+.details_button {
+  border: 1px solid #1890ff;
+  width: 105px;
+  height: 35px;
+  background-color: #fff;
+  color: #1890ff;
+  border-radius: 4px;
+}
+
+.details_button:hover {
+  background-color: #1890ff;
+  color: #fff;
+}

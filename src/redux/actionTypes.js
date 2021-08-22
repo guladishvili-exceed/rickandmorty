@@ -1,0 +1,3 @@
+export const actionTypes = {
+  SET_EPISODE_AND_LOCATIONS_TYPE: "SET_EPISODE_AND_LOCATIONS_TYPE",
+};

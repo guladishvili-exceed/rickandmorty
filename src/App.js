@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+
+import Characters from "./pages/Characters/Characters";
+import EpisodesAndLocations from "./pages/EpisodesAndLocations/EpisodesAndLocations";
+import Header from "./components/Header/Header";
+
+import reducer from "./redux/reducer";
+
+const store = createStore(reducer);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Characters} />
+            <Route
+              exact
+              path="/episodesAndlocations"
+              component={EpisodesAndLocations}
+            />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 

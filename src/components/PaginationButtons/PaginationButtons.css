@@ -1,0 +1,19 @@
+.page_button {
+  border: 1px solid #1890ff;
+  width: 55px;
+  margin: 2% 5px auto;
+  height: 35px;
+  background-color: #fff;
+  color: #1890ff;
+  border-radius: 4px;
+}
+
+.page_button:hover {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.button_container {
+  margin: 0 auto;
+  padding: 5px;
+}
